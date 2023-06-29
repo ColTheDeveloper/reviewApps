@@ -1,12 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {TouchableWithoutFeedback, Keyboard, StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+//import Navigator from "./route/homeStack"
+import Navigator from './route/homeStack';
+//import HomeStack from './route/homeStack';
+import DrawerStack from './route/drawer';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
+      <NavigationContainer>
+        <DrawerStack />
+      </NavigationContainer>
+    </TouchableWithoutFeedback>
   );
 }
 
